@@ -17,6 +17,6 @@ go build wiki.go && ./wiki
 - [x] templateを`/tmpl`, 記事を`/data`に保存する
 - [x] `/`を`view/FrontPage`にリダイレクトする
 - [x] HTML, CSSを良い感じにする
-- [ ] `POST`以外で`/save`にリクエストを投げたら失敗するようにする
+- [x] `POST`以外で`/save`にリクエストを投げたら失敗するようにする
 - [ ] `[PageName]`と`[]`でくくられているところはそのページへのリンクにする
 - [ ] CSSが当たらない問題を解決する
