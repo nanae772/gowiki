@@ -14,13 +14,17 @@ type Page struct {
 	Body  []byte
 }
 
+func getPagePath(title string) string {
+	return "data/" + title + ".txt"
+}
+
 func (p *Page) save() error {
-	filename := "data/" + p.Title + ".txt"
+	filename := getPagePath(p.Title)
 	return ioutil.WriteFile(filename, p.Body, 0600)
 }
 
 func loadPage(title string) (*Page, error) {
-	filename := "data/" + title + ".txt"
+	filename := getPagePath(title)
 	body, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return nil, err
