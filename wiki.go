@@ -90,7 +90,12 @@ func saveHandler(w http.ResponseWriter, r *http.Request, title string) {
 	http.Redirect(w, r, "/view/"+title, http.StatusFound)
 }
 
+func topHandler(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/view/FrontPage", http.StatusFound)
+}
+
 func main() {
+	http.HandleFunc("/", topHandler)
 	http.HandleFunc("/view/", makeHandler(viewHandler))
 	http.HandleFunc("/edit/", makeHandler(editHandler))
 	http.HandleFunc("/save/", makeHandler(saveHandler))
