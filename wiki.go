@@ -105,6 +105,7 @@ func faviconHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", rootHandler)
 	http.HandleFunc("/favicon.ico", faviconHandler)
+	http.Handle("/style/", http.StripPrefix("/style/", http.FileServer(http.Dir("style"))))
 	http.HandleFunc("/view/", makeHandler(viewHandler))
 	http.HandleFunc("/edit/", makeHandler(editHandler))
 	http.HandleFunc("/save/", makeHandler(saveHandler))
